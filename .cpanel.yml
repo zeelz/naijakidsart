@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/abecqiee/naijakidsart.com/
-    - /bin/cp ~/localhost/naijakidsart/* $DEPLOYPATH
+    - /bin/cp R ./* $DEPLOYPATH
