@@ -29,7 +29,7 @@
 
 
       body {
-        background-color: #e5e5e5;
+        background-color: #f0f3f5;
         margin: 0;
         padding: 0;
       }
@@ -42,7 +42,9 @@
       }
 
       .register {
-        background-color: #E9D105;
+        background-color: #630077;
+        padding-left: 4rem;
+        padding-right: 4rem;
       }
 
       .register:focus,
@@ -87,13 +89,12 @@
       }
 
       main {
-        background-color: #E9D105;
         /* height: 100vh; */
         /* background-image: linear-gradient(45deg, #750778, transparent); */
       }
 
       footer {
-        background-color: #E9D105;
+        background-color: #dbdbdb;
       }
 
       /* BOOTSTRAP OVERRIDES */
@@ -119,8 +120,8 @@
       }
 
       .form-section {
-        background-color: #630077;
-        color: #FFF;
+        /* background-color: #630077;
+        color: #FFF; */
       }
 
       /* gradient text */
@@ -130,7 +131,7 @@
     background-color: #ff5722;
     
     /* Create the gradient. */
-    background-image: linear-gradient(45deg, #9c27b0, #ff5722);
+    background-image: linear-gradient(45deg, #9c27b0, #3f51b5);
     
     /* Set the background size and repeat properties. */
     background-size: 100%;
@@ -152,9 +153,8 @@
     text-align: center;
     margin-bottom: 0;
     margin-bottom: -0.25em;
-    text-shadow: -7px -9px 0px #ffeb3b;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: .8;
   }
 
   h2 {
@@ -164,9 +164,8 @@
     text-align: center;
     margin-bottom: 0;
     margin-bottom: -0.25em;
-    text-shadow: -7px -9px 0px #fff;
     text-transform: uppercase;
-    /* line-height: 1; */
+    line-height: 1.5;
   }
 
   .triangle {
@@ -174,7 +173,7 @@
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-top: 30px solid #ff5722;
+    border-top: 30px solid #E9D105;
     position: relative;
     z-index: 100;
   }
@@ -190,8 +189,12 @@
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-top: 30px solid #ffeb3b;
+    border-top: 30px solid #630077;
     z-index: -1;
+  }
+
+  .form-check-input {
+    border: 1px solid #630077;
   }
 
   .form-check-input:checked {
@@ -201,20 +204,22 @@
 
   .form-check-input:focus {
     border-color: #9c48ad;
-    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+    box-shadow: 0 0 0 .25rem rgba(233, 209, 5, 1);
   }
 
   .form-control:focus {
     box-shadow: 0 0 0 0.25rem #9c27b0;
   }
 
+
   .image-wrapper {
-    padding: 2rem;
-    height: 100vh;
+    padding-top: 3rem;
+    /* height: 100vh; */
   }
   
   .image-wrapper img {
-    height: 100%;
+    /* height: 100%; */
+    border-radius: 0.75rem!important;
   }
 
 
@@ -251,24 +256,38 @@
 
   }
 
+  #participationForm .form-control {
+    background-color: transparent;
+    border: 1px solid #630077;
+  }
+
+  #participationForm .form-label {
+    color:#630077
+  }
+
+  #participationForm .form-control:focus {
+    box-shadow: 0 0 0px 0.1rem #630077;
+}
+
     </style>
 
     
   </head>
-  <body class="bg-light">
+  <body>
     
 <div class="container-fluid p-0">
 
   <main class="text-white d-flex flex-column justify-content-center align-items-center p-0">
 
-      <!-- <h1 class="display-5 text-center">Thank you for registering. <br>See you at the event</h1>  -->
-      <div class="image-wrapper">
-        <img src="assets/flyer-2022.jpg" alt="flyer for 2022 summer camp" class="img-fluid rounded-circle shadow-lg">
-      </div>
 
       <div class="p-md-5 p-3 my-lg-4 my-3 text-center big-text">
         <h2 class="gradient-text">Naija Kids Art</h2>
         <h1 class="gradient-text">Summer<br>  Camp</h1>   
+      </div>
+
+      <!-- <h1 class="display-5 text-center">Thank you for registering. <br>See you at the event</h1>  -->
+      <div class="image-wrapper">
+        <img src="assets/images/naijakidsart-summer-camp-2022.JPG" alt="flyer for 2022 summer camp" class="img-fluid shadow-lg">
       </div>
 
       <div class="d-flex justify-content-center m-md-5 m-4">
@@ -277,20 +296,40 @@
       </div>
 
   </main>
+    
+    
+  <script>
+  
+  const aa = document.getElementById('aa')
+  const body = document.querySelector('html')
+  aa.addEventListener('click', async (e) => {
+    e.preventDefault()
+    // console.log(e)
+
+    res = await fetch('oldsite/index.html')
+  
+    dd = await res.text()
+
+    body.innerHTML = dd
+
+    // console.log(dd)
+    
+
+  })
+  
+  </script>
 
   
 
-<section class="form-section pt-md-5">
+<section class="form-section pt-md-5 mx-3">
 
-    
-
-    <div class="g-5 p-3">
+    <div class="col-md-8 offset-md-2">
       
       <div class="col-md-8 offset-md-2">
         <form id="participationForm" class="needs-validation" novalidate enctype="multipart/form-data">
-          <div class="row g-3">
+          <div class="">
             <div class="col-12">
-              <label for="participant" class="form-label text-white">Name of Participant</label>
+              <label for="participant" class="form-label">Name of Participant</label>
               <input name="participant" type="text" class="form-control py-3 px-4" id="participants" required>
               <div class="invalid-feedback">
                 Valid first name is required.
@@ -298,7 +337,7 @@
             </div>
 
             <div class="col-12">
-              <label for="age" class="form-label text-white">Age of Participant</label>
+              <label for="age" class="form-label">Age of Participant</label>
               <input type="number" class="form-control py-3 px-4" name="age" required>
               <div class="invalid-feedback">
                 Valid last name is required.
@@ -306,12 +345,12 @@
             </div>
 
             <div class="col-12">
-              <label for="email" class="form-label text-white">Participant's Email <span style="font-size: .9rem;">(Enter Guardian's email if none)</span></label>
+              <label for="email" class="form-label">Participant's Email <span style="font-size: .9rem;">(Enter Guardian's email if none)</span></label>
               <input type="email" class="form-control py-3 px-4" name="email">             
             </div>
 
             <div class="col-12">
-              <label for="guardian_name" class="form-label text-white">Guardian's Firstname & Lastname</label>
+              <label for="guardian_name" class="form-label">Guardian's Firstname & Lastname</label>
               <input type="text" class="form-control py-3 px-4" name="guardian_name" required>
               <div class="invalid-feedback">
                 Please enter your name.
@@ -319,7 +358,7 @@
             </div>
 
             <div class="col-12">
-              <label for="guardian_phone" class="form-label text-white">Guardian's Phone</label>
+              <label for="guardian_phone" class="form-label">Guardian's Phone</label>
               <input type="tel" class="form-control py-3 px-4" id="guardian_phone" name="guardian_phone" required>
               <div class="invalid-feedback">
                 Please enter your phone number.
@@ -327,7 +366,7 @@
             </div>
 
             <div class="col-12">
-              <label for="guardian_email" class="form-label text-white">Guardian's Email <span class="text-muted"></span></label>
+              <label for="guardian_email" class="form-label">Guardian's Email <span class="text-muted"></span></label>
               <input type="email" class="form-control py-3 px-4" id="guardian_email" name="guardian_email">
               <div class="invalid-feedback">
                 Please enter a valid email address.
@@ -335,10 +374,7 @@
             </div>
           </div>
 
-          <hr class="my-4">
-
-
-          <div class="mb-4">
+          <div class="my-4">
             <p class="mb-2">Have you been in any of our painting sessions?</p>
             <div class="d-inline">
               <input name="previous_attendance" id="previous_attendance_yes" type="radio" value="Yes" class="form-check-input" checked required>
@@ -396,15 +432,15 @@
         
           
           <div class="col-md-8 offset-md-2">
-            <p class="text-center mt0-3 text-white-50" style="font-size: 12px;"><em>Photos of participants taken at event may be used for Naija Kids Art branding and communication purposes</em>.</p>
+            <p class="text-center mt0-3 text-dark-50" style="font-size: 12px;"><em>Photos of participants taken at event may be used for Naija Kids Art branding and communication purposes</em>.</p>
           </div>
 
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center px-5 mb-5">
             
             <!-- <button class="btn bg-white btn-outline-danger mt-4 py-3 px-5" disabled>
               Registration Closed -->
 
-            <button class="register btn rounded-pill mt-4 py-3 px-5" type="submit">
+            <button class="register btn text-white rounded-pill mt-4 py-3" type="submit">
               Register
 
               <div class="spinner-border text-warning ms-2 hide" style="width: 1.5rem; height: 1.5rem" role="status">
@@ -427,11 +463,6 @@
     <p class="mb-1">&copy; <span id="copyrightYear"></span> Naija Kids Art</p>
   </footer>
 </div>
-  
-  </body>
-  
-  
-
 
 <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 <!-- <script src="form-validation.js"></script> -->
@@ -549,5 +580,6 @@
 
   <script src="https://acxlivechat.s3.amazonaws.com/acx-livechat-widget.min.js"></script>
             <script defer>ACX.createLiveChatWidget({payload: 'ca7be0c8bffa6297259dc2c4d536d9e4981125d29eb55c6c40a57da85ee17789C4+J+0AdXWFj1JcPz26CCWZ7Wd/w5uxTl2vD3Q7lLrCz8917Aw2tje1WYatcCYm7RefC6ywofJNJwMuix/9hwIDsMeMHIvcU6xB/IKQ9RdtNsF7yIPrmVScAHL/c6xRD61LdRzciG0yXrQzxF6xn2/B0Xu1xkU4b/HVs77dHpoGJlJGmOHcoNTjeAnOWqsv1gvZVzA0bIFRv1R/3IXs26bfJ/uTc255E1bQ/bSPmuHXcz/D6CnAL+RZHF+OP/b+Oo5zwN7BSiofyZEYYJ1lkIGusLBrXP1gKiSbwkMQYplj9D+xM6viRtRcQfd0HylmMZn2/N0Uba+11lYcz41KVPp+Qmct75d1BO4AZyn1N3LI=67bdcad302bab9bfd339a5116255876e73da2291b499d3e732c9aa6b73bca3bf'});</script>
-            
+
+  </body>
   </html>

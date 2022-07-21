@@ -1,0 +1,21 @@
+{
+  "name": "naijakidsart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browser-sync start --server --files '*html, assets/*js, assets/*css'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeelz/naijakidsart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeelz/naijakidsart/issues"
+  },
+  "homepage": "https://github.com/zeelz/naijakidsart#readme"
+}
